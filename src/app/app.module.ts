@@ -27,6 +27,7 @@ import { AuthService } from './auth.service';
 import { AuthGuardService } from './auth-guard.service';
 import { UserService } from './user.service';
 import { AdminAuthGuardService } from './admin-auth-guard.service';
+import { ProductFormComponent } from './admin/product-form/product-form.component';
 
 
 
@@ -43,7 +44,8 @@ import { AdminAuthGuardService } from './admin-auth-guard.service';
     AdminComponent,
     AdminProductsComponent,
     AdminOrdersComponent,
-    LoginComponent
+    LoginComponent,
+    ProductFormComponent
   ],
   imports: [
     BrowserModule,
@@ -67,6 +69,10 @@ import { AdminAuthGuardService } from './admin-auth-guard.service';
       //admin
       { path: 'admin/products', 
         component: AdminProductsComponent, 
+        canActivate: [AuthGuardService, AdminAuthGuardService] 
+      },
+      { path: 'admin/products/new', 
+        component: ProductFormComponent, 
         canActivate: [AuthGuardService, AdminAuthGuardService] 
       },
       { path: 'admin/orders', 
