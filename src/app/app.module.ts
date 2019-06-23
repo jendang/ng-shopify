@@ -74,15 +74,21 @@ import { ProductService } from './product.service';
       { path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuardService] },
       { path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuardService] },
       { path: 'my/orders', component: MyOrdersComponent, canActivate: [AuthGuardService] },
-      //admin
+      //admin  //products
+      { path: 'admin/products/new', 
+      component: ProductFormComponent, 
+      canActivate: [AuthGuardService, AdminAuthGuardService] 
+      },
+      { path: 'admin/products/:id', 
+      component: ProductFormComponent, 
+      canActivate: [AuthGuardService, AdminAuthGuardService] 
+      },
       { path: 'admin/products', 
         component: AdminProductsComponent, 
         canActivate: [AuthGuardService, AdminAuthGuardService] 
       },
-      { path: 'admin/products/new', 
-        component: ProductFormComponent, 
-        canActivate: [AuthGuardService, AdminAuthGuardService] 
-      },
+
+      //admin //orders
       { path: 'admin/orders', 
         component: AdminOrdersComponent, 
         canActivate: [AuthGuardService, AdminAuthGuardService]
