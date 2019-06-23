@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core';
 import { AngularFireModule } from '@angular/fire'
 // import { AngularFirestoreModule } from '@angular/fire/firestore'
@@ -10,6 +11,7 @@ import { environment } from '../environments/environment'
 import { RouterModule } from '@angular/router'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import { FormsModule } from '@angular/forms'
+import { CustomFormsModule } from 'ng2-validation'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -51,7 +53,9 @@ import { ProductService } from './product.service';
     ProductFormComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
+    CustomFormsModule,
     FormsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),

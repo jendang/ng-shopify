@@ -15,13 +15,6 @@ export class ProductFormComponent {
     
   }
 
-  onChange(e) {
-    console.log(e.target)
-    //console.log(this.categories$)
-    //console.log(this.category.setValue(e.target.value))
-    //this.categories$.setValue(e.target.value)
-  }
-
   save(product) {
     //console.log(product)
     this.productService.create(product)
