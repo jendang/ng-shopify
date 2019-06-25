@@ -11,7 +11,7 @@ import { take } from 'rxjs/operators'
 })
 export class ProductFormComponent {
   categories$;
-  product;
+  product = {};
   id;
 
   constructor(
@@ -20,7 +20,8 @@ export class ProductFormComponent {
     private route: ActivatedRoute,
     private router: Router) {
 
-    this.categories$ = categoryService.getCategories()
+    this.categories$ = categoryService.getCategories().snapshotChanges()
+
     this.id = this.route.snapshot.paramMap.get('id') // getting id params from route
     if(this.id) this.productService.get(this.id).pipe(take(1)).subscribe(p => {
       //console.log(p.payload.val())

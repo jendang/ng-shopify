@@ -66,7 +66,7 @@ import { ProductService } from './product.service';
     NgbModule.forRoot(),
     RouterModule.forRoot([
       //anonymous user
-      { path: '', component: HomeComponent },
+      { path: '', component: ProductsComponent },
       { path: 'products', component: ProductsComponent },
       { path: 'shopping-cart', component: ShoppingCartComponent },
       { path: 'login', component: LoginComponent },
