@@ -20,7 +20,8 @@ export class ProductFormComponent {
     private route: ActivatedRoute,
     private router: Router) {
 
-    this.categories$ = categoryService.getCategories()
+    this.categories$ = categoryService.getCategories().snapshotChanges()
+
     this.id = this.route.snapshot.paramMap.get('id') // getting id params from route
     if(this.id) this.productService.get(this.id).pipe(take(1)).subscribe(p => {
       //console.log(p.payload.val())
@@ -37,7 +38,7 @@ export class ProductFormComponent {
   
   delete() {
     if(!confirm('Are you sure you want to delete this product')) return;
-    
+
     this.productService.delete(this.id)
     this.router.navigate(['admin/products'])
     
